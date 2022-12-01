@@ -13,12 +13,14 @@ const gridContainer = document.querySelector('section.grid');
 const button = document.querySelector('a.btn-primary');
 
 button.addEventListener('click', function () {
+
+
+    gridContainer.innerHTML='';
    
     for (let i = 1; i < 100; i++) {
 
-        gridContainer.innerHTML='';
-
         const newSquare = getElementNewSquare(); 
+
 
         newSquare.innerHTML = '<span class="m-auto">'  + i + '</span>';
         
