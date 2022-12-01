@@ -1,0 +1,21 @@
+.main-bg-color{
+    background-color: rgb(127, 255, 212);
+}
+
+
+
+.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: solid 3px black;
+}
+
+.active{
+    background-color: cyan;
+}
+
+.grid{
+    height: 1000px;
+    border: solid 3px black;
+    
+}
