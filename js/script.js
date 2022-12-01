@@ -23,7 +23,12 @@ const gridContainer = document.querySelector('section.grid');
 
 const button = document.querySelector('a.btn-primary');
 
-const container= []; 
+
+
+
+const container = [];
+
+let bombs = 0;
 
 function getElementNewSquare() {
     
@@ -40,16 +45,30 @@ function getElementNewSquare() {
 
 }
 
+ 
 
-for (let i = 1; i < 100 ; i++){
+
+
+for (let i = 1; i <= 100 ; i++){
     
     randomIndex = getRanndomNumber( 1 , 100);
 
     container.push(randomIndex);
+    
+    bombs = getRanndomNumber( 1 , 100);
+
+    if (!container.includes(bombs) ) {
+       container.push(bombs); 
+        
+    }
 
 }
 
- console.log(container)
+
+
+console.log(container)
+
+
 
 function getRanndomNumber(numMin,numMax) {
 
@@ -63,11 +82,11 @@ button.addEventListener('click', function () {
 
     gridContainer.innerHTML='';
    
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1; i <= 100; i++) {
 
         const newSquare = getElementNewSquare(); 
 
-        newSquare.innerHTML = '<span class="m-auto">'  + i + '</span>';
+        newSquare.innerHTML = '<span class="m-auto">'  + container[i] + '</span>';
         
         gridContainer.appendChild(newSquare);  
     }
@@ -79,5 +98,5 @@ button.addEventListener('click', function () {
 
 
 
-//funzione che crea il quadrato
+
 
