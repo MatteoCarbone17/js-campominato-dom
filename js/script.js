@@ -26,6 +26,8 @@ const button = document.querySelector('a.btn-primary');
 
 const container = [];
 
+bombsContainer=[];
+
 let bombs = 0;
 
 
@@ -73,6 +75,7 @@ button.addEventListener('click', function () {
     
     if (!container.includes(bombs)) {
        container.push(bombs); 
+       bombsContainer.push(bombs);
         
     }};
 
@@ -89,6 +92,7 @@ button.addEventListener('click', function () {
     
 
 console.log(container)
+console.log(bombsContainer)
 
 });
 
