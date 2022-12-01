@@ -67,7 +67,7 @@ button.addEventListener('click', function () {
     
     }
 
-    while (container.length < 100) {
+    while (container.length <= 100) {
        
         bombs = getRandomNumber( 1 , 100);
     
