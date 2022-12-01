@@ -26,7 +26,7 @@ const button = document.querySelector('a.btn-primary');
 
 const container = [];
 
-bombsContainer=[];
+const bombsContainer=[];
 
 let bombs = 0;
 
@@ -72,9 +72,12 @@ button.addEventListener('click', function () {
     while (container.length <= 100) {
        
         bombs = getRandomNumber( 1 , 100);
+        
     
-    if (!container.includes(bombs)) {
-       container.push(bombs); 
+        if (!container.includes(bombs)) {
+       
+        container.push(bombs); 
+
        bombsContainer.push(bombs);
         
     }};
