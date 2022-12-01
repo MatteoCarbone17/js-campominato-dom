@@ -47,8 +47,6 @@ function getElementNewSquare() {
 
 }
 
-
-
 function getRandomNumber(numMin,numMax) {
 
   return Math.floor(Math.random() * (numMax - numMin + 1) + numMin );
@@ -60,16 +58,7 @@ button.addEventListener('click', function () {
 
 
     gridContainer.innerHTML='';
-   
-    for (let i = 1; i <= 100; i++) {
 
-        const newSquare = getElementNewSquare(); 
-
-        newSquare.innerHTML = '<span class="m-auto">'  + container[i] + '</span>';
-        
-        gridContainer.appendChild(newSquare);  
-    }
-    
     for (let i = 1; i <= 86 ; i++){
     
         randomIndex = getRandomNumber( 1 , 100);
@@ -82,13 +71,21 @@ button.addEventListener('click', function () {
        
         bombs = getRandomNumber( 1 , 100);
     
-    if (!container.includes(bombs) ) {
+    if (!container.includes(bombs)) {
        container.push(bombs); 
         
-    }
-    
+    }};
+
+   
+    for (let i = 1; i <= 100; i++) {
+
+        const newSquare = getElementNewSquare(); 
+
+        newSquare.innerHTML = '<span class="m-auto">'  + container[i] + '</span>';
         
+        gridContainer.appendChild(newSquare);  
     }
+
     
 
 console.log(container)
