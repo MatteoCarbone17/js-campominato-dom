@@ -24,11 +24,11 @@ const gridContainer = document.querySelector('section.grid');
 const button = document.querySelector('a.btn-primary');
 
 
-
-
 const container = [];
 
 let bombs = 0;
+
+
 
 function getElementNewSquare() {
     
@@ -37,6 +37,8 @@ function getElementNewSquare() {
     newSquare.classList.add('square');
 
     newSquare.addEventListener("click", function() {
+
+
         console.warn("hai cliccato");
         newSquare.classList.toggle('active');
     })
@@ -45,32 +47,9 @@ function getElementNewSquare() {
 
 }
 
- 
 
 
-
-for (let i = 1; i <= 100 ; i++){
-    
-    randomIndex = getRanndomNumber( 1 , 100);
-
-    container.push(randomIndex);
-    
-    bombs = getRanndomNumber( 1 , 100);
-
-    if (!container.includes(bombs) ) {
-       container.push(bombs); 
-        
-    }
-
-}
-
-
-
-console.log(container)
-
-
-
-function getRanndomNumber(numMin,numMax) {
+function getRandomNumber(numMin,numMax) {
 
   return Math.floor(Math.random() * (numMax - numMin + 1) + numMin );
 
@@ -91,7 +70,28 @@ button.addEventListener('click', function () {
         gridContainer.appendChild(newSquare);  
     }
     
+    for (let i = 1; i <= 86 ; i++){
+    
+        randomIndex = getRandomNumber( 1 , 100);
+    
+        container.push(randomIndex);
+    
+    }
 
+    while (container.length < 100) {
+       
+        bombs = getRandomNumber( 1 , 100);
+    
+    if (!container.includes(bombs) ) {
+       container.push(bombs); 
+        
+    }
+    
+        
+    }
+    
+
+console.log(container)
 
 });
 
