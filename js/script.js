@@ -28,7 +28,6 @@ const container = [];
 
 const bombsList=[];
 
-let bombs = 0;
 
 function getRandomNumber(numMin,numMax) {
 
@@ -60,6 +59,8 @@ button.addEventListener('click', function () {
 
     gridContainer.innerHTML='';
 
+    let isGameValid = true
+
     for (let i = 0; i < 16; i++) {
         
         bombsList.push( getRandomUniqueNumber( bombsList , 0 , 100 ));
@@ -76,6 +77,7 @@ button.addEventListener('click', function () {
 
    
     for (let i = 1; i <= 100; i++) {
+        
 
         const newSquare = document.createElement('div');
 
@@ -83,12 +85,20 @@ button.addEventListener('click', function () {
 
         newSquare.addEventListener("click", function() {
         
-        if (bombsList.includes(i)) {
-            alert ('siuuummm')
-
+        if (isGameValid){
+            if (bombsList.includes(i)) {
+            isGameValid = false;
+            alert ('BOOOMM');
+            console.warn("Game over. Riavvia!"); 
+        } else {
+            newSquare.classList.toggle('active');
         }
-        console.warn("hai cliccato");
-        newSquare.classList.toggle('active');
+        } else {
+           alert('Partita terminata , avvia una nuova sessione')
+        }
+            
+        
+        
     })
 
         newSquare.innerHTML = '<span class="fs-3 m-auto">'  + container[i] + '</span>';
