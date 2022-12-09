@@ -21,13 +21,15 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 
 const gridContainer = document.querySelector('section.grid');
 
-const button = document.querySelector('a.btn-primary');
+const button = document.querySelector('a.start-game');
 
 
 const container = [];
 
 const bombsList=[];
 
+
+let points = 0; 
 
 function getRandomNumber(numMin,numMax) {
 
@@ -88,6 +90,9 @@ button.addEventListener('click', function () {
         if (isGameValid){
             if (bombsList.includes(i)) {
             isGameValid = false;
+
+            newSquare.classList.add('bg-red');
+
             alert ('BOOOMM');
             console.warn("Game over. Riavvia!"); 
         } else {
