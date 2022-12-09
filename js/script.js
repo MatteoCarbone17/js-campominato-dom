@@ -30,34 +30,11 @@ const bombsList=[];
 
 let bombs = 0;
 
-
-
-function getElementNewSquare() {
-    
-    const newSquare = document.createElement('div');
-
-    newSquare.classList.add('square' , 'd-flex');
-
-    newSquare.addEventListener("click", function() {
-        
-        if (bombsList.includes(i)) {
-            alert ('siuuummm')
-
-        }
-        console.warn("hai cliccato");
-        newSquare.classList.toggle('active');
-    })
-
-    return newSquare;
-
-}
-
 function getRandomNumber(numMin,numMax) {
 
   return Math.floor(Math.random() * (numMax - numMin + 1) + numMin );
 
 }
-
 
 function getRandomUniqueNumber(blackList ,min , max ) {
     let numberValid = false ; 
@@ -73,7 +50,9 @@ function getRandomUniqueNumber(blackList ,min , max ) {
         return randomNum
     }
 }
- 
+
+
+
 
 button.addEventListener('click', function () {
 
@@ -98,7 +77,19 @@ button.addEventListener('click', function () {
    
     for (let i = 1; i <= 100; i++) {
 
-        const newSquare = getElementNewSquare(); 
+        const newSquare = document.createElement('div');
+
+        newSquare.classList.add('square' , 'd-flex');
+
+        newSquare.addEventListener("click", function() {
+        
+        if (bombsList.includes(i)) {
+            alert ('siuuummm')
+
+        }
+        console.warn("hai cliccato");
+        newSquare.classList.toggle('active');
+    })
 
         newSquare.innerHTML = '<span class="fs-3 m-auto">'  + container[i] + '</span>';
         
