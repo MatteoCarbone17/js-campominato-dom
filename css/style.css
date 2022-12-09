@@ -10,7 +10,7 @@
 }
 
 .active{
-    background-color: cyan;
+    background-color: rgb(8, 214, 255);
 }
 
 .grid{
@@ -20,5 +20,5 @@
 }
 
 .bg-red{
-    background-color: rgb(118, 13, 13);
+    background-color: rgb(176, 55, 55);
 }

@@ -103,7 +103,7 @@ button.addEventListener('click', function () {
             points++;
             writeScore( 'user-points' , 'Punteggio : ' + points )
             console.log(points);
-            newSquare.classList.toggle('active');
+            newSquare.classList.add('active');
         }
         } else {
            alert('Partita terminata , avvia una nuova sessione')
