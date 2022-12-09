@@ -26,7 +26,7 @@ const button = document.querySelector('a.btn-primary');
 
 const container = [];
 
-const bombsContainer=[];
+const bombsList=[];
 
 let bombs = 0;
 
@@ -36,11 +36,14 @@ function getElementNewSquare() {
     
     const newSquare = document.createElement('div');
 
-    newSquare.classList.add('square');
+    newSquare.classList.add('square' , 'd-flex');
 
     newSquare.addEventListener("click", function() {
+        
+        if (bombsList.includes(i)) {
+            alert ('siuuummm')
 
-
+        }
         console.warn("hai cliccato");
         newSquare.classList.toggle('active');
     })
@@ -54,40 +57,50 @@ function getRandomNumber(numMin,numMax) {
   return Math.floor(Math.random() * (numMax - numMin + 1) + numMin );
 
 }
+
+
+function getRandomUniqueNumber(blackList ,min , max ) {
+    let numberValid = false ; 
+    let randomNum ;
+
+    while (numberValid === false) {
+        randomNum = getRandomNumber(min , max);
+
+        if ( !blackList.includes(randomNum)) {
+            numberValid = true;
+            
+        }
+        return randomNum
+    }
+}
  
 
 button.addEventListener('click', function () {
 
 
+
     gridContainer.innerHTML='';
 
-    for (let i = 1; i <= 86 ; i++){
-    
-        randomIndex = getRandomNumber( 1 , 100);
-    
-        container.push(randomIndex);
-    
+    for (let i = 0; i < 16; i++) {
+        
+        bombsList.push( getRandomUniqueNumber( bombsList , 0 , 100 ));
+        
     }
 
-    while (container.length <= 100) {
-       
-        bombs = getRandomNumber( 1 , 100);
-        
+    for (let i = 0; i <= 100 ; i++){
     
-        if (!container.includes(bombs)) {
-       
-        container.push(bombs); 
-
-       bombsContainer.push(bombs);
-        
-    }};
+        randomIndex = getRandomNumber( 0 , 100);
+    
+        container.push(randomIndex);
+    }
+    
 
    
     for (let i = 1; i <= 100; i++) {
 
         const newSquare = getElementNewSquare(); 
 
-        newSquare.innerHTML = '<span class="m-auto">'  + container[i] + '</span>';
+        newSquare.innerHTML = '<span class="fs-3 m-auto">'  + container[i] + '</span>';
         
         gridContainer.appendChild(newSquare);  
     }
@@ -95,7 +108,7 @@ button.addEventListener('click', function () {
     
 
 console.log(container)
-console.log(bombsContainer)
+console.log(bombsList)
 
 });
 
