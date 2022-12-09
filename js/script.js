@@ -52,6 +52,10 @@ function getRandomUniqueNumber(blackList ,min , max ) {
     }
 }
 
+function writeScore( elementId , content ){
+    document.getElementById(elementId).innerText= content ; 
+}
+
 
 
 
@@ -90,12 +94,15 @@ button.addEventListener('click', function () {
         if (isGameValid){
             if (bombsList.includes(i)) {
             isGameValid = false;
-
             newSquare.classList.add('bg-red');
-
+            writeScore( 'user-points' , 'Partita terminata , punteggio ragiunto: ' + points )
             alert ('BOOOMM');
-            console.warn("Game over. Riavvia!"); 
+            console.warn("Game over. Riavvia!");
+            points = 0 ; 
         } else {
+            points++;
+            writeScore( 'user-points' , 'Punteggio : ' + points )
+            console.log(points);
             newSquare.classList.toggle('active');
         }
         } else {
